@@ -39,7 +39,13 @@ namespace Academy
         }
         public override string ToString()
         {
-            return base.ToString() + $" {Subject}";
+            return $"{base.ToFileString()},{Subject.PadRight(20)}";
+        }
+
+        public override void Init(string[] values)
+        {
+            base.Init(values);
+            Subject = values[8];
         }
 
     }

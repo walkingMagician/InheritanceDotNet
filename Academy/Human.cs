@@ -41,7 +41,19 @@ namespace Academy
 
         public override string ToString()
         {
-            return base.ToString()+$": {LastName} {FirstName} {Age}";
+            return (base.ToString().Split('.').Last() + ":").PadRight(12)+$"{LastName.PadRight(12)} {FirstName.PadRight(12)} {Age.ToString().PadRight(10)}";
+        }
+
+        public virtual string ToFileString()
+        {
+            return $"{base.ToString().Split('.').Last()}:{LastName.PadRight(12)},{FirstName.PadRight(12)},{Age.ToString().PadRight(8)}";
+        }
+
+        public virtual void Init(string[] values)
+        { 
+            LastName = values[1];
+            FirstName = values[2];
+            Age = Convert.ToUInt32(values[3]);
         }
     }
 }

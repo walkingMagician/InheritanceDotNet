@@ -65,8 +65,21 @@ namespace Academy
         }
         public override string ToString()
         {
-            return base.ToString() + $" {Speciality} {Group} {Ratiang} {Attendance}";
+            return base.ToString() + $"{Speciality.PadRight(25)}{Group.PadRight(12)}{Ratiang.ToString().PadRight(8)}{Attendance.ToString().PadRight(8)}";
         }
 
+        public override string ToFileString()
+        {
+            return $"{base.ToFileString()},{Speciality.PadRight(8)}, {Group.PadRight(10)}, {Ratiang.ToString().PadRight(10)},{Attendance.ToString().PadRight(8)}";
+        }
+
+        public override void Init(string[] values)
+        {
+            base.Init(values);
+            Speciality = values[4];
+            Group = values[5];
+            Ratiang = Convert.ToDouble(values[6]);
+            Attendance = Convert.ToDouble(values[7]);
+        }
     }
 }
