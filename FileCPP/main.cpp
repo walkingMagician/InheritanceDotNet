@@ -21,10 +21,9 @@ void main()
 	system("notepad File.txt");
 #endif
 
-	std::ifstream fin("file.txt");	// 1) открытие потока можно совместить с созданием потока
+	std::ifstream fin("file.txt");	// 1) открытие потока и создание потока
 	if (fin.is_open())
 	{
-		// TODO: read from file
 		while (!fin.eof())
 		{
 			const int SIZE = 256;
